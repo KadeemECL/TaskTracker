@@ -1,0 +1,67 @@
+body {
+    text-align: center;
+}
+h1 {
+    font-size: 75px;
+}
+.one {
+    height: 710px;
+    background-image: url('bgimg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.oneContent {
+    color: white;
+    height: 710px;
+    background: rgba(0,0,0,.4);
+    position: absolute;
+    margin-left: -15px;
+
+}
+.title {
+    padding-top: 150px;
+}
+
+.noteTitle {
+    margin: 50px 0 50px 0;
+}
+.two {
+    height: 710px;
+}
+
+.main {
+    margin: auto;
+    width: 60%;
+    font-size: 25px;
+    padding-top: 50px;
+}
+
+.tasks {
+    height: 710px;
+}
+.taskTitle {
+    padding-top: 100px;
+}
+
+.form {
+    text-align: center;
+}
+
+.noteText {
+    width: 500px;
+    margin:auto;
+}
+
+button {
+    margin-bottom: 25px;
+}
+
+.display {
+    display: inline-block;
+    width: 250px;
+}
+
+.note{
+    margin-bottom: 25px;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskTracker</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
+    <script src="./main.js"></script>
+</head>
+
+<body >
+
+    <div id="app" onload="alertTime()">
+        <div class="container-fluid one">
+            <div class="container-fluid oneContent">
+                <h1 class="title">Task Tracker</h1>
+                <h3>So many distractions, so little time</h3>
+                <p class="main">An infinite number of websites, apps and shows to binge leads to an infinite number of ways to get taken
+                    off track. Staying focused is an impossible task. If only there was an aide that kept track of the tasks someone completed
+                    each hour or so. Oh wait....there is.</p>
+            </div>
+        </div>
+
+        <div class="tasks">
+            <h2 class="taskTitle">Keep track of your work progress below</h2>
+            <p>Every hour you're browser will automatically take you back to this page. From there
+                you can see and update your progress.</p>
+            <p>Just make sure you keep this tab open or it won't work</p>
+
+            <div class="form">
+                <div class="form-group">
+                    <div class="form-group noteText">
+                        <textarea class="form-control" v-model="note.text" placeholder=" ex. In the last hour I took a test, went for a run, cleaned my room, etc."></textarea>
+                    </div>
+                </div>
+                <button class="brn set_timer" @click="addNote">Submit</button>
+            </div>
+
+            <div class="display">
+                <div class="note" v-for="(note, index) in notes">
+                    <div class="card">
+                        <div class="card-block">
+                            <h4 class="card-title">{{note.title}}</h4>
+                            <h6 class="card-subtitle mb-2 text-muted">{{note.date}}</h6>
+                            <p class="card-text">{{note.text}}</p>
+                        </div>
+                        <button class="close" @click="removeNote(index)">&times;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                note: {
+                    title: '',
+                    text: ''
+                },
+                notes: [
+                    {
+                        text: 'See how much work you got done each hour. Good Luck',
+                        date: new Date(Date.now()).toLocaleString()
+                    }
+                ]
+            },
+            methods: {
+                addNote() {
+                    let {text, title} = this.note
+                    this.notes.push({
+                        text,
+                        title,
+                        date: new Date(Date.now()).toLocaleString()
+                    })
+                },
+                removeNote(index) {
+                  this.notes.splice(index, 1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
